@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BridgeRoute Alert Pro – Regional Transport &amp; Logistics Corridor</title>
+<meta name="description" content="Never get trapped at a closed bridge again. Get instant detour advisories ahead of time.">
+
+<!-- ============================================================
+     SETTINGS (the only two lines you may need to edit)
+     ============================================================ -->
+<script>
+  // Your Google Analytics 4 Measurement ID
+  var GA_MEASUREMENT_ID = 'G-LNSCCCY0BK';
+
+  // Your Google Form embed link. In Google Forms: Send > the <> tab > copy the
+  // address inside src="..." and paste it between the quotes below. It looks like:
+  // https://docs.google.com/forms/d/e/XXXXXXXX/viewform?embedded=true
+  var GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScTxHfwzWnVC6JR1vBbyhOgtUWTMx_g-eZE7vJX4l8RrSf0rA/viewform?embedded=true';
+</script>
+
+<style>
+  :root {
+    --blue: #154690;
+    --orange: #F0971F;
+    --orange-dark: #d98313;
+    --bg: #F4F7F0;
+    --ink: #000000;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Open Sans", "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.4;
+  }
+
+  .banner { background: var(--blue); color: var(--white); text-align: center; padding: 28px 20px 30px; }
+  .banner h1 {
+    margin: 0 auto; max-width: 1000px;
+    font-size: clamp(1.7rem, 4.6vw, 3.4rem); font-weight: 700; line-height: 1.15;
+  }
+
+  .tagline { text-align: center; padding: 14px 20px 0; }
+  .tagline strong { display: block; font-size: clamp(1.3rem, 3vw, 2.2rem); font-weight: 800; }
+  .tagline span { font-size: clamp(1rem, 1.8vw, 1.25rem); }
+
+  .hero {
+    max-width: 1100px; margin: 28px auto 0; padding: 0 20px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  }
+  .photo {
+    aspect-ratio: 430 / 242; width: 100%;
+    background: linear-gradient(135deg, var(--blue), #0e3169);
+    border-radius: 4px; overflow: hidden;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .features { list-style: none; margin: 0; padding: 0; }
+  .features li {
+    display: flex; align-items: center; gap: 14px;
+    font-weight: 800; font-size: clamp(1.2rem, 2.6vw, 2rem);
+    text-transform: uppercase; padding: 10px 0;
+  }
+  .features .ico { font-size: 1.1em; }
+
+  .cta-wrap { text-align: center; padding: 36px 20px 10px; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--orange); color: var(--blue);
+    border: 0; border-radius: 999px; padding: 18px 44px;
+    font-weight: 800; font-size: clamp(1.2rem, 3vw, 2.3rem);
+    font-family: inherit; text-transform: uppercase; cursor: pointer;
+    transition: transform .12s ease, background .12s ease;
+  }
+  .cta:hover { background: var(--orange-dark); transform: translateY(-2px); }
+  .cta:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; }
+
+  .fineprint { text-align: center; font-size: 1.05rem; padding: 6px 20px 28px; }
+
+  /* Popup */
+  .modal {
+    position: fixed; inset: 0; background: rgba(0,0,0,.55);
+    display: none; align-items: center; justify-content: center;
+    padding: 14px; z-index: 10;
+  }
+  .modal.open { display: flex; }
+  .modal-box {
+    background: var(--white); max-width: 560px; width: 100%;
+    max-height: 94vh; display: flex; flex-direction: column;
+    border-radius: 14px; border-top: 8px solid var(--orange); overflow: hidden;
+  }
+  .modal-head { padding: 18px 22px 8px; }
+  .modal-head h2 { margin: 0 0 6px; color: var(--blue); font-size: 1.4rem; }
+  .notice {
+    background: var(--bg); border-left: 5px solid var(--blue);
+    padding: 9px 12px; font-size: .92rem; border-radius: 4px;
+  }
+  .frame-wrap { flex: 1; min-height: 360px; overflow: hidden; }
+  .frame-wrap iframe { width: 100%; height: 100%; min-height: 460px; border: 0; display: block; }
+  .not-ready { padding: 20px 22px; color: #b3261e; font-weight: 600; }
+  .modal-foot { padding: 10px 22px 16px; text-align: right; }
+  .btn {
+    border: 0; border-radius: 999px; padding: 11px 26px;
+    font: inherit; font-weight: 800; cursor: pointer;
+    background: var(--blue); color: var(--white);
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 18px; }
+    .cta { padding: 16px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <h1>🚧 BridgeRoute Alert Pro – Regional Transport &amp; Logistics Corridor</h1>
+</header>
+
+<section class="tagline">
+  <strong>Never get trapped at a closed bridge again.</strong>
+  <span>Get instant detour advisories ahead of time!</span>
+</section>
+
+<main class="hero" id="hero">
+  <div class="photo">
+    <!-- Upload your photo to the same folder and name it driver.jpg -->
+    <img src="driver.jpg" alt="Truck driver smiling at the wheel" onerror="this.style.display='none'">
+  </div>
+  <ul class="features">
+    <li data-track="feature_click" data-label="instant_advisories"><span class="ico">🔔</span> Instant Advisories</li>
+    <li data-track="feature_click" data-label="smart_detour_mapping"><span class="ico">🗺️</span> Smart Detour Mapping</li>
+    <li data-track="feature_click" data-label="verified_load_status"><span class="ico">🚛</span> Verified Load Status</li>
+  </ul>
+</main>
+
+<section class="cta-wrap" id="cta-section">
+  <button class="cta" id="cta" type="button">🔗 Get Instant Detour Alerts</button>
+</section>
+
+<p class="fineprint">* A simple one-day validation test for user intent only*</p>
+
+<!-- Popup with the Google Form -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="modal-title">Show your support</h2>
+      <div class="notice"><strong>For academic validation purposes only.</strong> The details you share are used solely for this study. Filling out the form is optional.</div>
+    </div>
+    <div class="frame-wrap" id="frame-wrap"></div>
+    <div class="modal-foot"><button type="button" class="btn" id="close-btn">Close</button></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* ---------- Google Analytics 4 ---------- */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  var gaReady = /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID);
+  if (gaReady) {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);   // sends the page view
+  }
+  function track(name, params) {
+    if (gaReady) gtag('event', name, params || {});
+    else console.log('[event]', name, params || {});
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var modal = $('modal'), wrap = $('frame-wrap');
+  var loads = 0;
+
+  function openModal() {
+    modal.classList.add('open');
+    wrap.innerHTML = '';
+    loads = 0;
+
+    if (!GOOGLE_FORM_URL) {
+      wrap.innerHTML = '<div class="not-ready">The form is not connected yet. (Site owner: paste your Google Form embed link into GOOGLE_FORM_URL.)</div>';
+      return;
+    }
+    var f = document.createElement('iframe');
+    f.title = 'Support form';
+    f.src = GOOGLE_FORM_URL;
+    f.addEventListener('load', function () {
+      loads++;
+      // 1st load = form shown. 2nd load = Google's "response recorded" page.
+      if (loads === 2) track('form_submit');
+    });
+    wrap.appendChild(f);
+  }
+  function closeModal() {
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open');
+    wrap.innerHTML = '';
+    track('form_close', { submitted: loads >= 2 });
+  }
+
+  /* ---------- Click tracking ---------- */
+  $('cta').addEventListener('click', function () {
+    track('cta_click', { button_label: 'Get Instant Detour Alerts' });
+    track('form_open');
+    openModal();
+  });
+  document.querySelectorAll('[data-track]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      track(el.dataset.track, { item: el.dataset.label });
+    });
+  });
+  $('close-btn').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  /* ---------- View tracking: button scrolled into view ---------- */
+  if ('IntersectionObserver' in window) {
+    var seen = false;
+    new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && !seen) {
+          seen = true; track('cta_view', { section: 'cta' }); obs.disconnect();
+        }
+      });
+    }, { threshold: 0.6 }).observe($('cta-section'));
+  }
+})();
+</script>
+</body>
+</html>
